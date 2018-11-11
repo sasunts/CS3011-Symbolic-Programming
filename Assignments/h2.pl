@@ -3,13 +3,16 @@
 % of 1’s in v
 
 %q1:
-s --> [].
-s --> u, s, v.
-u-->[0].
-v-->[1].
+s --> u(Count), [2], v(Count).
+
+u(0)-->[].
+u(succ(Count)) --> [0],u(Count).
+u(Count) --> [1],u(Count).
 
 
-
+v(0)-->[].
+v(succ(Count)) --> [1],v(Count).
+v(Count) --> [0],v(Count).
 
 
 %q2:
@@ -30,3 +33,6 @@ nation3 --> [spanish].
 pet1 --> [snail].
 pet2 --> [jaguar].
 pet3 --> [zebra].
+
+
+%q3:
