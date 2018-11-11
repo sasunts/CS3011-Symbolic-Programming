@@ -36,3 +36,5 @@ pet3 --> [zebra].
 
 
 %q3:
+mkList(0, []).
+mkList(Num, [Num | T]) :- N is Num - 1, N >= 0, mkList(N, T).
