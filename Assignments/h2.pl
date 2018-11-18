@@ -1,9 +1,5 @@
-% Write a DCG that accepts strings of the form u2v where u and v are strings
-% over the alphabet {0, 1} such that the number of 0’s in u is twice the number
-% of 1’s in v
-
 %q1:
-s --> u(Count), [2], v(Count).
+s1 --> u(Count), [2], v(Count).
 
 u(0)-->[].
 u(succ(Count)) --> [0],u(Count).
@@ -17,7 +13,7 @@ v(Count) --> [0],v(Count).
 
 %q2:
 
-s --> group1, group2, group3.
+s2 --> group1, group2, group3.
 group1 --> colour1, nation1, pet1.
 group2 --> colour2, nation2, pet2.
 group3 --> colour3, nation3, pet3.
@@ -38,3 +34,6 @@ pet3 --> [zebra].
 %q3:
 mkList(0, []).
 mkList(Num, [Num | T]) :- N is Num - 1, N >= 0, mkList(N, T).
+
+s3(0) --> [].
+s3(N) --> {mkList(N,List), member(X,List), Y is N-X}, [X], s3(Y).
