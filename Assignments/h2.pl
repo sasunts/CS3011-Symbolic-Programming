@@ -1,15 +1,14 @@
 %q1:
-s1 --> u(Count), [2], v(Count).
+s --> [2].
+s --> u(Zeros), [2], v(Ones), {Zeros is 2*Ones}.
 
-u(0)-->[].
-u(succ(Count)) --> [0],u(Count).
-u(Count) --> [1],u(Count).
+u(0) --> [].
+u(Zeros) --> [0], u(Z), {Zeros is Z+1}.
+u(Zeros) --> [1], u(Zeros).
 
-
-v(0)-->[].
-v(succ(Count)) --> [1],v(Count).
-v(Count) --> [0],v(Count).
-
+v(0) --> [].
+v(Ones) --> [1], v(O), {Ones is O+1}.
+v(Ones) --> [0], v(Ones).
 
 %q2:
 
